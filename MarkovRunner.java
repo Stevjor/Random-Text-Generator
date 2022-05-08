@@ -15,6 +15,20 @@ public class MarkovRunner {
 		st = st.replace('\n', ' ');
 		MarkovZero markov = new MarkovZero();
 		markov.setTraining(st);
+		markov.setRandom(101);
+		for(int k=0; k < 3; k++){
+			String text = markov.getRandomText(500);
+			printOut(text);
+		}
+	}
+	
+	public void runMarkovOne() {
+		FileResource fr = new FileResource();
+		String st = fr.asString();
+		st = st.replace('\n', ' ');
+		MarcovOne markov = new MarcovOne();
+		markov.setTraining(st);
+		markov.setRandom(101);
 		for(int k=0; k < 3; k++){
 			String text = markov.getRandomText(500);
 			printOut(text);
