@@ -7,7 +7,7 @@ public class Tester {
     public void testGetFollows() {
         MarcovOne mo = new MarcovOne();
         mo.setTraining("this is a test yes this is a test.");
-        String key = "es";
+        String key = "t";
         ArrayList<String> followCharacters = mo.getFollows(key);
         System.out.println("There are " + followCharacters.size() + 
         " characters that follows \"" + key + "\".");
@@ -20,7 +20,7 @@ public class Tester {
         FileResource fr = new FileResource();
         String text = fr.asString();
         mo.setTraining(text);
-        String key = "t";
+        String key = "th";
         ArrayList<String> followCharacters = mo.getFollows(key);
         System.out.println("There are " + followCharacters.size() + 
         " characters that follows \"" + key + "\".");

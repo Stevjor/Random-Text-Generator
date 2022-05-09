@@ -1,16 +1,14 @@
 import java.util.Random;
 import java.util.ArrayList;
 /**
- * Write a description of class MarcovOne here.
- * 
- * @author (your name) 
- * @version (a version number or a date)
+ * This class follows the principle of MarkovTwo class to predict the next 
+ * character of a text starting from four characters.
  */
-public class MarcovOne {
+public class MarkovFour {
     private String myText;
     private Random myRandom;
     
-    public MarcovOne() {
+    public MarkovFour() {
         myRandom = new Random();
     }
     
@@ -53,20 +51,19 @@ public class MarcovOne {
     
     public String getRandomText(int numChars){
         StringBuffer sb = new StringBuffer();
-        int index = myRandom.nextInt(myText.length() - 1);
-        String key = myText.substring(index, index + 1);
+        int index = myRandom.nextInt(myText.length() - 4);
+        String key = myText.substring(index, index + 4);
         sb.append(key);
         
-        for (int i = 0; i < numChars - 1; i++) {
+        for (int i = 0; i < numChars - 4; i++) {
             ArrayList<String> follows = getFollows(key);
             if (follows.size() == 0) break;
             index = myRandom.nextInt(follows.size());
             String next = follows.get(index);
             sb.append(next);
-            key = next;
+            key = key.substring(1) + next;
         }
         
         return sb.toString();
     }
-    
 }
